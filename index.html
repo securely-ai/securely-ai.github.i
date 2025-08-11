@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHL Express - Excellence. Simply Delivered.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'purple-primary': '#7C3AED',
+                        'purple-secondary': '#A855F7',
+                        'purple-dark': '#5B21B6',
+                        'purple-light': '#E9D5FF',
+                        'purple-gray': '#666666',
+                        'purple-light-gray': '#F5F5F5'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Delivery+Duty+Unpaid:wght@400;700&family=Arial:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Arial', sans-serif;
+        }
+        
+        .purple-gradient {
+            background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+        }
+        
+        .purple-text-gradient {
+            background: linear-gradient(135deg, #7C3AED 0%, #A855F7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .purple-shadow {
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
+        }
+        
+        .purple-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .purple-hover:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.2);
+        }
+        
+        .purple-card {
+            background: white;
+            border: 1px solid #E5E5E5;
+            border-radius: 8px;
+        }
+        
+        .purple-button {
+            background: #7C3AED;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+        
+        .purple-button:hover {
+            background: #5B21B6;
+        }
+        
+        .purple-button-secondary {
+            background: #A855F7;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+        
+        .purple-button-secondary:hover {
+            background: #7C3AED;
+        }
+        
+        .purple-nav {
+            background: white;
+            border-bottom: 3px solid #7C3AED;
+        }
+        
+        .tracking-step {
+            position: relative;
+        }
+        
+        .tracking-step::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 30px;
+            bottom: -20px;
+            width: 2px;
+            background: #A855F7;
+        }
+        
+        .tracking-step:last-child::before {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <!-- Navigation -->
+    <nav class="purple-nav shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <div class="flex items-center">
+                        <div class="bg-purple-primary text-white px-3 py-1 font-bold text-xl">SWIFT</div>
+                        <div class="bg-purple-secondary text-white px-2 py-1 font-semibold text-sm ml-1">EXPRESS</div>
+                    </div>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-purple-primary font-medium transition-colors">Home</a>
+                    <a href="#tracking" class="text-gray-700 hover:text-purple-primary font-medium transition-colors">Track</a>
+                    <a href="#services" class="text-gray-700 hover:text-purple-primary font-medium transition-colors">Services</a>
+                    <a href="#solutions" class="text-gray-700 hover:text-purple-primary font-medium transition-colors">Solutions</a>
+                    <a href="#contact" class="text-gray-700 hover:text-purple-primary font-medium transition-colors">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden p-2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg fixed w-full top-16 z-40 border-b-3 border-purple-primary">
+        <div class="px-4 py-4 space-y-3">
+            <a href="#home" class="block py-2 text-gray-700 hover:text-purple-primary transition-colors">Home</a>
+            <a href="#tracking" class="block py-2 text-gray-700 hover:text-purple-primary transition-colors">Track</a>
+            <a href="#services" class="block py-2 text-gray-700 hover:text-purple-primary transition-colors">Services</a>
+            <a href="#solutions" class="block py-2 text-gray-700 hover:text-purple-primary transition-colors">Solutions</a>
+            <a href="#contact" class="block py-2 text-gray-700 hover:text-purple-primary transition-colors">Contact</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center py-16">
+                <div>
+                    <h1 class="text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
+                        Excellence.
+                        <span class="text-purple-primary">Simply Delivered.</span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                        The world's leading international express services company. Connecting people, improving lives.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="scrollToSection('tracking')" class="purple-button">
+                            TRACK SHIPMENT
+                        </button>
+                        <button onclick="scrollToSection('services')" class="purple-button-secondary">
+                            GET QUOTE
+                        </button>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="bg-purple-light-gray rounded-lg p-8">
+                        <img src="https://i.imgur.com/tnAPXb8.png" alt="Swift Express Delivery Service" class="w-full h-auto rounded-lg" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Services Bar -->
+    <section class="bg-purple-primary py-4">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="flex flex-wrap justify-center gap-8 text-white">
+                <div class="flex items-center space-x-2">
+                    <div class="w-6 h-6 bg-purple-secondary rounded-full flex items-center justify-center">
+                        <div class="w-3 h-3 bg-purple-primary rounded-full"></div>
+                    </div>
+                    <span class="font-semibold">Express Worldwide</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="w-6 h-6 bg-purple-secondary rounded-full flex items-center justify-center">
+                        <div class="w-2 h-2 bg-purple-primary rounded-full"></div>
+                    </div>
+                    <span class="font-semibold">Same Day Delivery</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="w-6 h-6 bg-purple-secondary rounded-full flex items-center justify-center">
+                        <div class="w-4 h-1 bg-purple-primary rounded"></div>
+                    </div>
+                    <span class="font-semibold">Supply Chain</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tracking Section -->
+    <section id="tracking" class="py-20 bg-purple-light-gray">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Track Your Shipment</h2>
+                <p class="text-xl text-gray-600">Get real-time updates on your Swift Express shipments</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="purple-card purple-shadow p-8">
+                    <div class="flex flex-col lg:flex-row gap-4 mb-8">
+                        <input 
+                            type="text" 
+                            id="tracking-input"
+                            placeholder="Enter your tracking number"
+                            class="flex-1 px-6 py-4 border-2 border-gray-300 rounded-lg focus:border-purple-primary focus:outline-none text-lg"
+                        >
+                        <button 
+                            onclick="trackPackage()"
+                            class="purple-button px-8 py-4 text-lg"
+                        >
+                            TRACK
+                        </button>
+                    </div>
+                    
+                    <div id="tracking-result" class="hidden">
+                        <div class="grid lg:grid-cols-2 gap-8">
+                            <div>
+                                <h3 class="text-2xl font-bold mb-6 text-gray-900">Shipment Progress</h3>
+                                <div class="space-y-6">
+                                    <div class="tracking-step flex items-start space-x-4">
+                                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-gray-900">Shipment Information Received</p>
+                                            <p class="text-sm text-gray-600">Dec 15, 2024 - 09:30</p>
+                                            <p class="text-sm text-gray-500">Cincinnati Hub - USA</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tracking-step flex items-start space-x-4">
+                                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-gray-900">Processed at Origin</p>
+                                            <p class="text-sm text-gray-600">Dec 15, 2024 - 14:15</p>
+                                            <p class="text-sm text-gray-500">Cincinnati Hub - USA</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tracking-step flex items-start space-x-4">
+                                        <div class="w-8 h-8 bg-purple-secondary rounded-full flex items-center justify-center flex-shrink-0">
+                                            <div class="w-3 h-3 bg-purple-primary rounded-full animate-pulse"></div>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-purple-primary">In Transit</p>
+                                            <p class="text-sm text-gray-600">Dec 15, 2024 - 18:45</p>
+                                            <p class="text-sm text-gray-500">En route to destination</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tracking-step flex items-start space-x-4">
+                                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <div class="w-3 h-3 bg-gray-500 rounded-full"></div>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-500">Out for Delivery</p>
+                                            <p class="text-sm text-gray-400">Pending</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tracking-step flex items-start space-x-4">
+                                        <div class="w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center flex-shrink-0">
+                                            <div class="w-3 h-3 bg-gray-500 rounded-full"></div>
+                                        </div>
+                                        <div>
+                                            <p class="text-gray-500">Delivered</p>
+                                            <p class="text-sm text-gray-400">Pending</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold mb-6 text-gray-900">Shipment Details</h3>
+                                <div class="bg-white border border-gray-200 rounded-lg p-6">
+                                    <div class="space-y-4">
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Service:</span>
+                                            <span class="font-semibold">Swift Express Worldwide</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">From:</span>
+                                            <span class="font-semibold">Cincinnati, OH, USA</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">To:</span>
+                                            <span class="font-semibold">London, UK</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Weight:</span>
+                                            <span class="font-semibold">2.5 kg</span>
+                                        </div>
+                                        <div class="flex justify-between">
+                                            <span class="text-gray-600">Estimated Delivery:</span>
+                                            <span class="font-bold text-purple-primary">Dec 16, 2024 by 12:00</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+                <p class="text-xl text-gray-600">Comprehensive logistics solutions for every need</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="purple-card purple-hover p-8">
+                    <div class="w-16 h-16 flex items-center justify-center mb-6">
+                        <svg class="w-12 h-12 text-purple-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Express Worldwide</h3>
+                    <p class="text-gray-600 mb-6">Fast, reliable international shipping to over 220 countries and territories</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-purple-secondary rounded-full"></div>
+                            <span>1-3 business days</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-purple-secondary rounded-full"></div>
+                            <span>Door-to-door delivery</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-purple-secondary rounded-full"></div>
+                            <span>Real-time tracking</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="purple-card purple-hover p-8">
+                    <div class="w-16 h-16 flex items-center justify-center mb-6">
+                        <svg class="w-12 h-12 text-purple-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Same Day</h3>
+                    <p class="text-gray-600 mb-6">Ultra-fast delivery within the same day for urgent shipments</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-purple-primary rounded-full"></div>
+                            <span>2-6 hours delivery</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-purple-primary rounded-full"></div>
+                            <span>Priority handling</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-purple-primary rounded-full"></div>
+                            <span>Dedicated courier</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="purple-card purple-hover p-8">
+                    <div class="w-16 h-16 flex items-center justify-center mb-6">
+                        <svg class="w-12 h-12 text-purple-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Supply Chain</h3>
+                    <p class="text-gray-600 mb-6">End-to-end supply chain solutions for businesses of all sizes</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-purple-secondary rounded-full"></div>
+                            <span>Warehousing</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-purple-secondary rounded-full"></div>
+                            <span>Distribution</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-purple-secondary rounded-full"></div>
+                            <span>Customs clearance</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="purple-card purple-hover p-8">
+                    <div class="w-16 h-16 flex items-center justify-center mb-6">
+                        <svg class="w-12 h-12 text-purple-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Secure Plus</h3>
+                    <p class="text-gray-600 mb-6">Enhanced security for high-value and sensitive shipments</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-purple-primary rounded-full"></div>
+                            <span>Enhanced security</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-purple-primary rounded-full"></div>
+                            <span>Signature required</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-purple-primary rounded-full"></div>
+                            <span>Full insurance</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="purple-card purple-hover p-8">
+                    <div class="w-16 h-16 flex items-center justify-center mb-6">
+                        <svg class="w-12 h-12 text-purple-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Business Solutions</h3>
+                    <p class="text-gray-600 mb-6">Tailored logistics solutions for enterprise customers</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-purple-secondary rounded-full"></div>
+                            <span>Volume discounts</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-purple-secondary rounded-full"></div>
+                            <span>Dedicated support</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-purple-secondary rounded-full"></div>
+                            <span>Custom solutions</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="purple-card purple-hover p-8">
+                    <div class="w-16 h-16 flex items-center justify-center mb-6">
+                        <svg class="w-12 h-12 text-purple-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">Global Trade</h3>
+                    <p class="text-gray-600 mb-6">Comprehensive international trade and customs services</p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-purple-primary rounded-full"></div>
+                            <span>Customs brokerage</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-purple-primary rounded-full"></div>
+                            <span>Trade consulting</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <div class="w-2 h-2 bg-purple-primary rounded-full"></div>
+                            <span>Documentation</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-20 bg-purple-light-gray">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Industry Solutions</h2>
+                <p class="text-xl text-gray-600">Specialized logistics for every industry</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="purple-card purple-hover p-6 text-center">
+                    <div class="w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-purple-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Healthcare</h3>
+                    <p class="text-gray-600 text-sm">Temperature-controlled logistics for pharmaceuticals</p>
+                </div>
+                
+                <div class="purple-card purple-hover p-6 text-center">
+                    <div class="w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-purple-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Technology</h3>
+                    <p class="text-gray-600 text-sm">Secure handling of electronics and IT equipment</p>
+                </div>
+                
+                <div class="purple-card purple-hover p-6 text-center">
+                    <div class="w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-purple-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Fashion</h3>
+                    <p class="text-gray-600 text-sm">Fast fashion and luxury goods distribution</p>
+                </div>
+                
+                <div class="purple-card purple-hover p-6 text-center">
+                    <div class="w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-purple-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2">Automotive</h3>
+                    <p class="text-gray-600 text-sm">Just-in-time delivery for automotive parts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Contact Swift Express</h2>
+                <p class="text-xl text-gray-600">Get in touch with our expert team</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="purple-card p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6">Send us a message</h3>
+                    <form id="contact-form" class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">First Name</label>
+                                <input type="text" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-primary focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Last Name</label>
+                                <input type="text" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-primary focus:outline-none">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                            <input type="email" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-primary focus:outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
+                            <select class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-primary focus:outline-none">
+                                <option>General Inquiry</option>
+                                <option>Shipping Question</option>
+                                <option>Account Support</option>
+                                <option>Business Solutions</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                            <textarea rows="5" required class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:border-purple-primary focus:outline-none resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="purple-button w-full py-4 text-lg">
+                            SEND MESSAGE
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="space-y-8">
+                    <div class="dhl-card p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-dhl-red rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-lg text-gray-900">Customer Service</p>
+                                    <p class="text-dhl-red font-semibold">1-800-PROTON-1</p>
+                                    <p class="text-gray-600 text-sm">Available 24/7</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-dhl-yellow rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-dhl-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-lg text-gray-900">Email Support</p>
+                                    <p class="text-dhl-red font-semibold">customerservice@protonexpress.com</p>
+                                    <p class="text-gray-600 text-sm">Response within 24 hours</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4">
+                                <div class="w-12 h-12 bg-dhl-red rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-lg text-gray-900">Service Centers</p>
+                                    <p class="text-dhl-red font-semibold">Find locations</p>
+                                    <p class="text-gray-600 text-sm">Over 7,000 locations worldwide</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dhl-card p-8">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Business Hours</h3>
+                        <div class="space-y-2 text-gray-600">
+                            <div class="flex justify-between">
+                                <span>Monday - Friday:</span>
+                                <span class="font-semibold">8:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Saturday:</span>
+                                <span class="font-semibold">9:00 AM - 5:00 PM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Sunday:</span>
+                                <span class="font-semibold">Closed</span>
+                            </div>
+                            <div class="mt-4 p-4 bg-dhl-light-yellow rounded-lg">
+                                <p class="text-dhl-red font-semibold text-sm">Emergency shipments available 24/7</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="bg-dhl-red text-white px-3 py-1 font-bold text-xl">PROTON</div>
+                        <div class="bg-dhl-yellow text-black px-2 py-1 font-semibold text-sm ml-1">EXPRESS</div>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">The logistics company for the world. Excellence. Simply delivered.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="hover:text-dhl-yellow transition-colors cursor-pointer">Express Worldwide</li>
+                        <li class="hover:text-dhl-yellow transition-colors cursor-pointer">Same Day</li>
+                        <li class="hover:text-dhl-yellow transition-colors cursor-pointer">Supply Chain</li>
+                        <li class="hover:text-dhl-yellow transition-colors cursor-pointer">Global Trade</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="hover:text-dhl-yellow transition-colors cursor-pointer">Track & Trace</li>
+                        <li class="hover:text-dhl-yellow transition-colors cursor-pointer">Customer Service</li>
+                        <li class="hover:text-dhl-yellow transition-colors cursor-pointer">Service Guide</li>
+                        <li class="hover:text-dhl-yellow transition-colors cursor-pointer">Find Locations</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="hover:text-dhl-yellow transition-colors cursor-pointer">About DHL</li>
+                        <li class="hover:text-dhl-yellow transition-colors cursor-pointer">Careers</li>
+                        <li class="hover:text-dhl-yellow transition-colors cursor-pointer">Press</li>
+                        <li class="hover:text-dhl-yellow transition-colors cursor-pointer">Investor Relations</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-400">&copy; 2024 Proton Express International. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+        
+        // Package tracking
+        function trackPackage() {
+            const trackingNumber = document.getElementById('tracking-input').value;
+            const resultDiv = document.getElementById('tracking-result');
+            
+            if (trackingNumber.trim()) {
+                resultDiv.classList.remove('hidden');
+                setTimeout(() => {
+                    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 300);
+            } else {
+                showNotification('Please enter a tracking number', 'warning');
+            }
+        }
+        
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            showNotification('Thank you for contacting Proton Express! We will respond within 24 hours.', 'success');
+            this.reset();
+        });
+        
+        // Custom notification system
+        function showNotification(message, type = 'info') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-20 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm transform transition-all duration-500 translate-x-full`;
+            
+            const colors = {
+                success: 'bg-green-500 text-white',
+                warning: 'bg-dhl-yellow text-black',
+                error: 'bg-dhl-red text-white',
+                info: 'bg-dhl-red text-white'
+            };
+            
+            notification.className += ` ${colors[type]}`;
+            notification.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <p class="font-semibold">${message}</p>
+                    <button onclick="this.parentElement.parentElement.remove()" class="ml-4 hover:opacity-70 transition-opacity">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                        </svg>
+                    </button>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+            
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => notification.remove(), 500);
+            }, 5000);
+        }
+        
+        // Demo tracking numbers
+        document.getElementById('tracking-input').addEventListener('focus', function() {
+            if (!this.value) {
+                this.placeholder = 'Try: 1234567890, 9876543210, or 5555666777';
+            }
+        });
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                }
+            });
+        });
+        
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('shadow-xl');
+            } else {
+                nav.classList.remove('shadow-xl');
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96d5d5c8546b51a5',t:'MTc1NDg5NTQwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
